@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbab0434-4d0f-4656-83ee-444d6bca05a5" name="Changes" comment="" />
+    <list default="true" id="cbab0434-4d0f-4656-83ee-444d6bca05a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Debug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/subject.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,9 +21,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2ZU7tN43GOGdSjXOzNFbYskODbn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -31,7 +34,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "branchSample",
     "onboarding.tips.debug.path": "/Users/shizhixuan/IdeaProjects/Java04/src/main/java/org/example/Main.java"
   }
 }]]></component>
@@ -45,16 +48,5 @@
       <updated>1702465017453</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
