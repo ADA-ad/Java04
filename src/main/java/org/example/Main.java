@@ -1,19 +1,42 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.awt.print.Book;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+//        filter
+        List<Integer> filteredInts = Stream.of(25, 15, 75, 35, 40, 5, 65, 78)
+                .filter(i -> i > 30)
+                .toList();
+        System.out.println(filteredInts);
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+//        anyMatch
+        Stream<Integer> number = Stream.of(25, 15, 75, 35, 40, 5, 65);
+        boolean oneIsEven = number.anyMatch(i -> i % 2 == 0);
+        System.out.println(oneIsEven);
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
-        }
+//        Listに変換
+        Stream<String> books = Stream.of("lordOfTheRings","hobbit","harryPotter","gameOfThrones");
+
+        List<String> bookList = books.toList();
+        System.out.println(bookList);
+
+//        skip
+        Stream<? extends Serializable> subjects = Stream.of("国語", 60, "英語", 70 ,"数学", 80);
+        long count = subjects.skip(2).count();
+        System.out.println(count);
+
+//        generate/ iterate
+
+        Stream.generate(() -> "こんにちは").limit(6).forEach(System.out::println);
+
+        List<Integer> intsFrom0To9 = Stream.iterate(0, n -> n + 1).limit(10).toList();
+        System.out.println(intsFrom0To9);
     }
 }
