@@ -29,7 +29,7 @@ public class Main {
 
 //        skip
         Stream<? extends Serializable> subjects = Stream.of("国語", 60, "英語", 70 ,"数学", 80);
-        long count = subjects.skip(2).count();
+        long count = subjects.skip(1).count();
         System.out.println(count);
 
 //        generate/ iterate
