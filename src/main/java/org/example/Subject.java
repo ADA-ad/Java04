@@ -1,6 +1,6 @@
 package org.example;
 
-public class subject {
+public class Subject {
     private String name;
     private Integer number;
 
