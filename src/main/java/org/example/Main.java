@@ -2,8 +2,7 @@ package org.example;
 
 import java.awt.print.Book;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -15,6 +14,15 @@ public class Main {
                 .filter(i -> i > 30)
                 .toList();
         System.out.println(filteredInts);
+//        map
+        List<String> foodlist = new ArrayList<>(Arrays.asList("chocolate", "makaron", "cheesecake", "pudding", "cookie",
+                "pancake"));
+
+        System.out.println(foodlist.toString());
+
+        Map<String, Integer> map = foodlist.stream().collect(Collectors.toMap(s -> s, String::length));
+
+        System.out.println(map.toString());
 
 //        anyMatch
         Stream<Integer> number = Stream.of(25, 15, 75, 35, 40, 5, 65);
