@@ -43,4 +43,4 @@ bin/
 .idea/**/gradle.xml
 .idea/**/workspace.xml
 
-
+.idea
