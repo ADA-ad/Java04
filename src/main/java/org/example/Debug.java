@@ -11,7 +11,10 @@ public class Debug {
         List<Integer> ids = List.of(123, 234, 345, 456);
 
 // 14行目にbreakpointを置いて、studentByIdのサイズとidsのサイズが不一致を発見
-        for (int i = 0; i <= (ids.size() -2); i++) {
+
+
+
+        for (int i = 0; i <= (ids.size() - 2); i++) {
             String name = studentById.get(ids.get(i));
             System.out.println(name.toUpperCase());
         }

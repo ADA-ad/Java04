@@ -1,9 +1,11 @@
 package org.example;
 
-import java.awt.print.Book;
 import java.io.Serializable;
+
 import java.util.*;
-import java.util.function.Supplier;
+
+import java.util.List;
+
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -14,20 +16,25 @@ public class Main {
                 .filter(i -> i > 30)
                 .toList();
         System.out.println(filteredInts);
+
 //        map
-        List<String> foodlist = new ArrayList<>(Arrays.asList("chocolate", "makaron", "cheesecake", "pudding", "cookie",
+        List<String> foodlist = new ArrayList<>(Arrays.asList("chocolate", "cake", "cheesecake", "pudding", "cookie",
                 "pancake"));
 
-        System.out.println(foodlist.toString());
 
         Map<String, Integer> map = foodlist.stream().collect(Collectors.toMap(s -> s, String::length));
+            System.out.println(map);
 
-        System.out.println(map.toString());
 
 //        anyMatch
         Stream<Integer> number = Stream.of(25, 15, 75, 35, 40, 5, 65);
         boolean oneIsEven = number.anyMatch(i -> i % 2 == 0);
         System.out.println(oneIsEven);
+
+
+
+
+
 
 //        Listに変換
         Stream<String> books = Stream.of("lordOfTheRings","hobbit","harryPotter","gameOfThrones");
@@ -36,8 +43,12 @@ public class Main {
         System.out.println(bookList);
 
 //        skip
-        Stream<? extends Serializable> subjects = Stream.of("国語", 60, "英語", 70 ,"数学", 80);
-        long count = subjects.skip(1).count();
+        Stream<? extends Serializable> Subjects = Stream.of("国語", 60, "英語", 70 ,"数学", 80);
+
+        long count = Subjects.skip(1).count();
+
+
+
         System.out.println(count);
 
 //        generate/ iterate

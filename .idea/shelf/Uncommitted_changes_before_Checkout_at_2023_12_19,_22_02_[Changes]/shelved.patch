@@ -1,0 +1,142 @@
+Index: src/main/java/org/example/Debug.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\n\nimport java.util.List;\nimport java.util.Map;\n\npublic class Debug {\n    public static void main(String[] args) {\n        Map<Integer, String> studentById = Map.of(123, \"takahashi\", 234, \"yamamoto\", 345, \"nakamura\");\n        System.out.println(studentById.get(2));\n\n        List<Integer> ids = List.of(123, 234, 345, 456);\n\n// 14行目にbreakpointを置いて、studentByIdのサイズとidsのサイズが不一致を発見\n        for (int i = 0; i <= ids.size(); i++) {\n            String name = studentById.get(ids.get(i));\n            System.out.println(name.toUpperCase());\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Debug.java b/src/main/java/org/example/Debug.java
+--- a/src/main/java/org/example/Debug.java	
++++ b/src/main/java/org/example/Debug.java	
+@@ -11,7 +11,7 @@
+         List<Integer> ids = List.of(123, 234, 345, 456);
+ 
+ // 14行目にbreakpointを置いて、studentByIdのサイズとidsのサイズが不一致を発見
+-        for (int i = 0; i <= ids.size(); i++) {
++        for (int i = 0; i <= (ids.size()-2); i++) {
+             String name = studentById.get(ids.get(i));
+             System.out.println(name.toUpperCase());
+         }
+Index: src/main/java/org/example/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\n\nimport java.awt.print.Book;\nimport java.io.Serializable;\nimport java.util.List;\nimport java.util.Optional;\nimport java.util.function.Supplier;\nimport java.util.stream.Collectors;\nimport java.util.stream.Stream;\n\npublic class Main {\n    public static void main(String[] args) {\n//        filter\n        List<Integer> filteredInts = Stream.of(25, 15, 75, 35, 40, 5, 65, 78)\n                .filter(i -> i > 30)\n                .toList();\n        System.out.println(filteredInts);\n\n//        anyMatch\n        Stream<Integer> number = Stream.of(25, 15, 75, 35, 40, 5, 65);\n        boolean oneIsEven = number.anyMatch(i -> i % 2 == 0);\n        System.out.println(oneIsEven);\n\n//        Listに変換\n        Stream<String> books = Stream.of(\"lordOfTheRings\",\"hobbit\",\"harryPotter\",\"gameOfThrones\");\n\n        List<String> bookList = books.toList();\n        System.out.println(bookList);\n\n//        skip\n        Stream<? extends Serializable> subjects = Stream.of(\"国語\", 60, \"英語\", 70 ,\"数学\", 80);\n        long count = subjects.skip(2).count();\n        System.out.println(count);\n\n//        generate/ iterate\n\n        Stream.generate(() -> \"こんにちは\").limit(6).forEach(System.out::println);\n\n        List<Integer> intsFrom0To9 = Stream.iterate(0, n -> n + 1).limit(10).toList();\n        System.out.println(intsFrom0To9);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Main.java b/src/main/java/org/example/Main.java
+--- a/src/main/java/org/example/Main.java	
++++ b/src/main/java/org/example/Main.java	
+@@ -10,6 +10,7 @@
+ 
+ public class Main {
+     public static void main(String[] args) {
++
+ //        filter
+         List<Integer> filteredInts = Stream.of(25, 15, 75, 35, 40, 5, 65, 78)
+                 .filter(i -> i > 30)
+@@ -39,4 +40,4 @@
+         List<Integer> intsFrom0To9 = Stream.iterate(0, n -> n + 1).limit(10).toList();
+         System.out.println(intsFrom0To9);
+     }
+-}
+\ No newline at end of file
++}
+Index: src/main/java/org/example/Subject.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\n\npublic class subject {\n    private String name;\n    private Integer number;\n\n    public void setName(String name) {\n        this.name = name;\n    }\n\n    public void setNumber(Integer number) {\n        this.number = number;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    public Integer getNumber() {\n        return number;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Subject.java b/src/main/java/org/example/Subject.java
+--- a/src/main/java/org/example/Subject.java	
++++ b/src/main/java/org/example/Subject.java	
+@@ -1,6 +1,6 @@
+ package org.example;
+ 
+-public class subject {
++public class Subject {
+     private String name;
+     private Integer number;
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"cbab0434-4d0f-4656-83ee-444d6bca05a5\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/gradle.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build.gradle\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/gradlew\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/gradlew.bat\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/settings.gradle\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Debug.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Main.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/subject.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ExternalProjectsData\">\n    <projectState path=\"$PROJECT_DIR$\">\n      <ProjectState />\n    </projectState>\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 5\n}</component>\n  <component name=\"ProjectId\" id=\"2ZU7tN43GOGdSjXOzNFbYskODbn\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/shizhixuan/IdeaProjects/Java04/src/main/java/org/example/Main.java&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CreateClassDialog.RecentsKey\">\n      <recent name=\"org.example\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"Debug\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.example.Debug\" />\n      <module name=\"Java04.main\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"org.example.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Debug\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"cbab0434-4d0f-4656-83ee-444d6bca05a5\" name=\"Changes\" comment=\"\" />\n      <created>1702465017453</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1702465017453</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/org/example/Debug.java</url>\n          <line>13</line>\n          <option name=\"timeStamp\" value=\"2\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,20 +5,12 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="cbab0434-4d0f-4656-83ee-444d6bca05a5" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Debug.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/subject.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Books.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Debug.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/subject.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -38,6 +30,19 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <excluded-from-favorite>
++      <branch-storage>
++        <map>
++          <entry type="LOCAL">
++            <value>
++              <list>
++                <branch-info repo="$PROJECT_DIR$" source="main" />
++              </list>
++            </value>
++          </entry>
++        </map>
++      </branch-storage>
++    </excluded-from-favorite>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="ProjectColorInfo">{
+Index: src/main/java/org/example/Books.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;public class Books {\n}\n
+===================================================================
+diff --git a/src/main/java/org/example/Books.java b/src/main/java/org/example/Books.java
+--- a/src/main/java/org/example/Books.java	
++++ b/src/main/java/org/example/Books.java	
+@@ -1,2 +1,13 @@
+-package org.example;public class Books {
++package org.example;
++
++public class Books {
++    private final String title;
++
++    public Books(String title) {
++        this.title = title;
++    }
++
++    public String getTitle() {
++        return title;
++    }
+ }
